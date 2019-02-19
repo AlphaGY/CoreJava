@@ -141,6 +141,38 @@ public class QuestionSetOne {
 		q8foo(y);
 	}
 
+	static class q9A {
+		void foo(Object o) {
+			System.out.println("Object");
+		}
+
+		void foo(String str) {
+			System.out.println(str);
+		}
+	}
+
+	public static void q9() {
+		new q9A().foo("abc");
+		new q9A().foo(null);
+	}
+
+	static class q10A {
+		public void doIt(int x, int y) {
+			System.out.println("a");
+		}
+
+		public void doIt(int... vals) {// new feature in Java 5
+			System.out.println("b");
+		}
+	}
+
+	public static void q10() {
+		q10A a = new q10A();
+		a.doIt(3, 4);
+		a.doIt(5);
+		a.doIt(6, 7, 8);
+	}
+
 	public static void switchFallThrough() {
 		java.util.ArrayList<String> futureMonths = new java.util.ArrayList<String>();
 		int month = 8;
@@ -184,7 +216,9 @@ public class QuestionSetOne {
 	}
 
 	public static void main(String[] args) {
-		q8();
+//		q8();
+//		q9();
+		q10();
 	}
 
 }
